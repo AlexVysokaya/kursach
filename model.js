@@ -257,6 +257,7 @@ function getData() { //функция получения данных из ин�
     TsMIN: parse(document.getElementById('Tsmin').value),
     TsMAX: parse(document.getElementById('Tsmax').value),
     lambda: parse(document.getElementById('lambda').value),
+    tobr: parse(document.getElementById('Tobr').value),
     Mu: 1 / parse(document.getElementById('Tobr').value),
   })
 }
@@ -274,6 +275,11 @@ function clickButton () { //функция клика на кнопку
   const data = getData();
   const method = checkDistribution();
 
+  if (!data.N || !data.timework) { //проверка ввода необходимых данных
+    alert ('Заполните поля N и время работы программы');
+    return false;
+  }
+
   let prog = [];
 
   const elem = { //объект с данными (нужно для вычисления хар-к по формулам)
@@ -282,10 +288,18 @@ function clickButton () { //функция клика на кнопку
   }
 
   if (method === 'line') { //в зависимости от выбранного закона распределения, хар-ки программ вычисляются по разному
+    if (!data.TzMIN || !data.TzMAX || !data.TsMIN || !data.TsMAX) { //проверка ввода необходимых данных
+      alert ('Заполните поля TzMIN, TzMAX, TsMIN, TsMAX');
+      return false;
+    }
     prog = calcProgramsLine(data.TzMIN, data.TzMAX, data.TsMIN, data.TsMAX, data.timework);
     elem.l = Math.pow((data.TzMIN + data.TzMAX) / 2, -1);
     elem.mu = Math.pow((data.TsMIN + data.TsMAX) / 2, -1);
   } else {
+    if (!data.tobr || !data.lambda) { //проверка ввода необходимых данных
+      alert ('Заполните поля λ и tобр');
+      return false;
+    }
     prog = calcProgramsExp(data.lambda, data.Mu, data.timework);
     elem.l = data.lambda;
     elem.mu = data.Mu;
