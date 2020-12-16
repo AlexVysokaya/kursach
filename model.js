@@ -212,7 +212,7 @@ function modeling(programs, servers, n, m, time, L, Mu) { //моделирова
 
 let text = `Результат работы ВС за ${time} секунд:`;
 for (let i = 0; i < n; i++) {
-  text += `\nВремя простоя первого сервера ${servers[i].downTime.toFixed(2)} секунд;\nКол-во программ поступивших на этот сервер ${servers[i].array.length};`
+  text += `\nВремя простоя ${i}-го сервера ${servers[i].downTime.toFixed(2)} секунд;\nКол-во программ поступивших на этот сервер ${servers[i].array.length};`
 }
 
 text += `\nКол-во необработанных программ: ${count}`
