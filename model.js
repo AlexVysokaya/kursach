@@ -212,7 +212,7 @@ function modeling(programs, servers, n, m, time, L, Mu) { //моделирова
 
 let text = `Результат работы ВС за ${time} секунд:`;
 for (let i = 0; i < n; i++) {
-  text += `\nВремя простоя первого сервера ${servers[i].downTime.toFixed(2)} секунд;\nКол-во программ поступившик на этот сервер ${servers[i].array.length};`
+  text += `\nВремя простоя первого сервера ${servers[i].downTime.toFixed(2)} секунд;\nКол-во программ поступивших на этот сервер ${servers[i].array.length};`
 }
 
 text += `\nКол-во необработанных программ: ${count}`
@@ -226,7 +226,7 @@ text += `\nВероятность отказа: ${otkazP.toFixed(3)}
 Абсолютная пропускная способность ВС: ${S.toFixed(3)}
 Среднее число занятых серверов: ${K.toFixed(3)}
 Среднее число программ в буфере: ${BoofN.toFixed(3)}
-Среднее чесло программ в ВС: ${ProgN.toFixed(3)}
+Среднее число программ в ВС: ${ProgN.toFixed(3)}
 Среднее время нахождения программы в буфере: ${BoofT.toFixed(3)}
 Среднее время нахождения программы в ВС: ${ProgT.toFixed(3)}`
 
@@ -237,7 +237,7 @@ text += `\nВероятность отказа: ${otkazP.toFixed(3)}
 let coclusionLine = document.querySelector('.conclusion-line'); //поле вывода резулятата при линейном распределении
 let conclusionExponential = document.querySelector('.conclusion-exponential'); //поле вывода резулятата при экспоненциальном распределении
 
-function parse(str) { //функция парсинка данных из input
+function parse(str) { //функция парсинга данных из input
   if (str.indexOf('/', 0) != -1) {
     const arr = str.split('/');
     return +arr[0] / +arr[1];
@@ -309,7 +309,7 @@ function clickButton () { //функция клика на кнопку
   let conclusion = modeling(prog, servers, data.N, data.M, data.timework, elem.l, elem.mu); //моделирование и расчет хар-к ВС
 
   if (method === 'line') {
-    coclusionLine.textContent = conclusion; //добавить переменную text в вывод, если нужен расчет по формулам
+    coclusionLine.textContent = conclusion;
   } else {
     conclusionExponential.textContent = conclusion;
   }
