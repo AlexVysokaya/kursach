@@ -68,6 +68,27 @@ function creatServers(n) { // создание серверов
   //t - время, когда освободится сервер, id - номер сервера
 }
 
+const factorial = (n) => { //функция нахождения факториала
+  return (n != 1) ? n * factorial(n - 1) : 1
+}
+
+const math = (r, n, m) => { //функция вычисления
+  return (Math.pow(r, (n + m)) / (Math.pow(n, m) * factorial(n)) )
+}
+
+const calcBoofN = (r, n, m, x, p0) => { //функция нахождения среднего числа программ в буфере
+
+  let E = 0;
+  if (x === 1) {
+    for (let i = 0; i < m; i ++) {
+      E += (i + 1) * Math.pow(x, i);
+    }
+  } else {
+    E = (1 - Math.pow(x, m) * (m + 1 - m*x))/Math.pow( (1-x), 2);
+  }
+  return (math(r, n, 1) * p0 * E);
+}
+
 function modeling(programs, servers, n, m, time, L, Mu) { //моделирование работы ВС с расчетом характеристик
   let boof = []; //буфер
   let count = 0; //кол-во необработанных программ
@@ -75,6 +96,7 @@ function modeling(programs, servers, n, m, time, L, Mu) { //моделирова
   for (let i = 0; i <= n + m; i++) { //заполняем массив вероятностей нулями, чтобы не было ошибок в вычислении
     P.push(0);
   }
+
   let arrayForParametrs = [{time: 0, flagPrihoda: false}]; //массив для вычисления вероятностей
 
   for (let i = 0; i < programs.length; i++) { //цикл по заявкам (программам)

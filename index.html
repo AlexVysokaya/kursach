@@ -13,71 +13,71 @@
 
   <div>
     <h2>Параметры симуляции работы ВС</h2>
-    <div class = 'attribut'>
+    <div class='attribut'>
       Кол-во серверов в ВС (N):
-      <input type = 'text' id = 'N' value = '4'>
+      <input type='text' id='N' value='4'>
     </div>
-    <div class = 'attribut'>
+    <div class='attribut'>
       Кол-во мест в буфере (M):
-      <input type = 'text' id = 'M' value = '3'>
+      <input type='text' id='M' value='3'>
     </div>
-    <div class = 'attribut'>
+    <div class='attribut'>
       Время работы программы в секундах:
-      <input type = 'text' id = 'timework' value = '3600'>
+      <input type='text' id='timework' value='3600'>
     </div>
 
     <div>
       <h3>Параметры для распределения по линейному закону</h3>
       <div>
         <h4>Время между приходами программ (в секундах)</h4>
-        <div class = 'attribut'>
+        <div class='attribut'>
           Tzmin - минимальный интервал между приходом программ:
-          <input type = 'text' id = 'Tzmin' value = '1/2'>
+          <input type='text' id='Tzmin' value='1/2'>
         </div>
-        <div class = 'attribut'>
+        <div class='attribut'>
           Tzmax - максимальный интервал между приходом программ:
-          <input type = 'text' id = 'Tzmax' value = '5/6'>
+          <input type='text' id='Tzmax' value='5/6'>
         </div>
       </div>
       <div>
         <h4>Время обработки одной программы (в секундах)</h4>
-        <div class = 'attribut'>
+        <div class='attribut'>
           Tsmin - минимальное время обработки одной программы сервером:
-          <input type = 'text' id = 'Tsmin' value = '1'>
+          <input type='text' id='Tsmin' value='1'>
         </div>
-        <div class = 'attribut'>
+        <div class='attribut'>
           Tsmax - максимальное время обработки одной программы сервером:
-          <input type = 'text' id = 'Tsmax' value = '5'>
+          <input type='text' id='Tsmax' value='5'>
         </div>
       </div>
     </div>
 
     <div>
       <h3>Парамтры для распределения по экспоненциальному закону</h3>
-      <div class = 'attribut'>
+      <div class='attribut'>
         Частота (λ):
-        <input type = 'text' id = 'lambda' value = '1.5'>
+        <input type='text' id='lambda' value='1.5'>
       </div>
-      <div class = 'attribut'>
+      <div class='attribut'>
         Среднее время обработки программы каждым сервером (tобр):
-        <input type = 'text' id = 'Tobr' value = '2'>
+        <input type='text' id='Tobr' value='2'>
       </div>
     </div>
 
     <div>
       <h3>Желаемый тип распределения вероятностей</h3>
-      <p><input type = 'radio' name = 'distribution' value = 'line' checked>Линейный</p>
-      <p><input type = 'radio' name = 'distribution' value = 'exponential'>Экспоненциальный</p>
+      <p><input type='radio' name='distribution' value='line' checked>Линейный</p>
+      <p><input type='radio' name='distribution' value='exponential'>Экспоненциальный</p>
     </div>
 
     <div class='button-box'>
-      <button id = 'button' onclick="clickButton()">Смоделировать ВС и рассчитать ее параметры</button>
+      <button id='button' onclick="clickButton()">Смоделировать ВС и рассчитать ее параметры</button>
     </div>
   </div>
 
   <div>
     <h2>Характеристики ВС</h2>
-    <div class = 'box-conclusion'>
+    <div class='box-conclusion'>
       <div>
         <h3>Линейный закон</h3>
         <div class="conclusion-line conclusion"></div>
@@ -89,9 +89,6 @@
     </div>
   </div>
 
-  </div>
-
-  <script src="parametrs.js"></script>
   <script src="model.js"></script>
 </body>
 
