@@ -310,10 +310,6 @@ function clickButton () { //функция клика на кнопку
   }
 
   if (method === 'line') { //в зависимости от выбранного закона распределения, хар-ки программ вычисляются по разному
-    if (!data.TzMIN || !data.TzMAX || !data.TsMIN || !data.TsMAX) { //проверка ввода необходимых данных
-      alert ('Заполните поля TzMIN, TzMAX, TsMIN, TsMAX');
-      return false;
-    }
     prog = calcProgramsLine(data.TzMIN, data.TzMAX, data.TsMIN, data.TsMAX, data.timework);
     elem.l = Math.pow((data.TzMIN + data.TzMAX) / 2, -1);
     elem.mu = Math.pow((data.TsMIN + data.TsMAX) / 2, -1);
